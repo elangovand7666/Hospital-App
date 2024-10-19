@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Addmission</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #007bff;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .form-container {
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 40%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Patient Addmission</h1>
+</header>
+
+<div class="form-container">
+    <h2>Patient Information</h2>
+    <form method="POST" action="{% url 'admit' %}">
+        {% csrf_token %}
+        <h3>Admission fees : Rs.200</h3>
+        <input name="name" type="text" placeholder="Name" required>
+        <input name="age" type="text" placeholder="Age" required>
+        <input name="ph" type="text" placeholder="Phone Number" required>
+        <input name="address" type="text" placeholder="Address" required>
+        <input name="cause" type="text"  placeholder="Cause of Admission" required>
+        <button type="submit" value="submit">Submit</button>
+</div>
+
+
+
+</body>
+</html>

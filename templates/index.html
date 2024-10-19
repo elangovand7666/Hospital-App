@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES HOSPITAL</title>
+    <link rel="icon" href="image1.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+
+        .search-input {
+            padding: 15px;
+            border: none;
+            margin-top:30px;
+            margin-bottom:30px;
+            outline: none;
+            width:400px;
+            flex-grow: 1; /* Allow input to grow */
+            font-size: 16px;
+            border-radius:30px 0 0 30px;
+            height: 25px; /* Set height */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-button {
+            background: #007bff;
+            color: white;
+            border-radius:0px 30px 30px 0px;
+            padding: 0 20px; /* Horizontal padding */
+            cursor: pointer;
+            height: 55px; /* Match input height */
+            border: none; /* Remove default border */
+            transition: background 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-button:hover {
+            background: #0056b3;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            padding-bottom: 50px;
+        }
+
+        .button-container {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 20%;
+            text-align: center;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .button-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .imgs {
+            width: 90%;
+            max-height: 350px;
+            padding-bottom: 5%;
+            object-fit: cover;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .button-container {
+                width: 100%; /* Stacks buttons on smaller screens */
+            }
+            .search-bar {
+                width: 80%; /* Expands search bar on smaller screens */
+            }
+        }
+        .foot{
+            background: #007bff;
+            padding:5px;
+        }
+        .foot:p{
+            color:#f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ES HOSPITAL</h1>
+</header>
+<center>
+<div class="search-bar">
+    <form action="{% url 'lss' %}" method="POST">
+        {% csrf_token %}
+        <input name="name0"type="text" class="search-input" placeholder="admitted patient id or name">
+        <button class="search-button" type="submit">Search</button>
+    </form>
+</div></center>
+<h2>Admission and Discharge</h2>
+<div class="container">
+    <div class="button-container">
+        <h2>Patient Admission</h2>
+        {% load static %}
+        <img class="imgs" src= "{% static 'images/image1.png' %}">
+        <form action="{% url 'admit' %}">
+            <button type="submit">ADMIT</button>
+        </form>
+    </div>
+
+    <div class="button-container">
+        <h2>Patient Discharge</h2>
+        {% load static %}
+        <img class="imgs" src= "{% static 'images/image3.png' %}">
+        <form action="{% url 'discharge' %}">
+            <button type="submit">DISCHARGE</button>
+        </form>
+    </div>
+
+    <div class="button-container">
+        <h2>Admitted Patients</h2>
+        {% load static %}
+        <img class="imgs"src="{% static "images/image4.png" %}">
+        <form action="{% url 'lss1' %}">
+            <button type="submit">CHECK</button>
+        </form>
+    </div>
+</div>
+<h2>Payments and Entry</h2>
+<div class="container">
+    <div class="button-container">
+        <h2>Medical and Other Payments</h2>
+        {% load static %}
+        <img class="imgs"src="{% static "images/image2.png" %}">
+        <form action="{% url 'bill' %}">
+            <button type="submit">ADD</button>
+        </form>
+    </div>
+
+    <div class="button-container">
+        <h2>Doctor Visiting Entry</h2>
+        {% load static %}
+        <img class="imgs"src="{% static "images/image6" %}">
+        <form action="{% url 'visit' %}">
+            <button type="submit">ENTRY</button>
+        </form>
+    </div>
+</div>
+<h2>History</h2>
+<div class="container">
+    <div class="button-container">
+        <h2>Visited Doctors</h2>
+        {% load static %}
+        <img class="imgs"src="{% static "images/image7.webp" %}">
+        <form action="{% url 'lss2' %}">
+            <button type="submit">CHECK</button>
+        </form>
+    </div>
+
+    <div class="button-container">
+        <h2>Discharged Patients</h2>
+        {% load static %}
+        <img class="imgs"src="{% static "images/image5" %}">
+        <form action="{% url 'lss3' %}">
+            <button type="submit">CHECK</button>
+        </form>
+    </div>
+</div>
+</body>
+<footer class="foot">
+    <center><p>&COPY; designed by Elango at 2024</p></center>
+</footer>
+</html>

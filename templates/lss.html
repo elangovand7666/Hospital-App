@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Admission Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Admitted Patient Details</h1>
+</header>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Cause of Admission</th>
+                <th>Date of Admission</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in rr %}
+            <tr>
+                <td>{{ result.0 }}</td> <!-- Assuming name is in index 1 of tuple -->
+                <td>{{ result.1 }}</td> <!-- Assuming age is in index 2 of tuple -->
+                <td>{{ result.2 }}</td> <!-- Assuming phone number is in index 3 of tuple -->
+                <td>{{ result.3 }}</td> <!-- Assuming address is in index 4 of tuple -->
+                <td>{{ result.4 }}</td> <!-- Assuming cause of admission is in index 5 of tuple -->
+                <td>{{result.5}}</td>
+                <td>{{result.6}}</td>
+                <td>{{result.7}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
