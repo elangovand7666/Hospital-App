@@ -1,11 +1,11 @@
-# Hospital-App
+# Hospital-App Django App
 This project is a Hospital Management System designed to streamline hospital operations, particularly in managing patient admissions, discharges, billing, and tracking doctors visited. The system ensures efficient record-keeping and improves the overall patient experience.
 
 Key Features:
 
     Patient Admission:
         Register and admit new patients with detailed personal and medical information.
-        Assign rooms and beds for inpatient care.
+        Assign patient_id.
 
     Patient Discharge:
         Discharge patients with proper documentation.
@@ -14,7 +14,7 @@ Key Features:
 
     Billing:
         Calculate hospital bills based on treatments, medications, and services used.
-        Manage payment records, outstanding dues, and generate invoices.
+        Manage payment records.
 
     Doctors Visited:
         Record the names of doctors who have treated or consulted patients during their stay.
